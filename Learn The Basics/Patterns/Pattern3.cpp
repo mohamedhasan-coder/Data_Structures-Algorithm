@@ -3,7 +3,7 @@ using namespace std;
 
 class Solution{
     public: 
-        void printPattern2(int n)
+        void printPattern3(int n)
         {
             for (int i=1; i<=n; i++)
             {
