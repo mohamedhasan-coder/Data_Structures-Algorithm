@@ -185,3 +185,67 @@ public:
 };
 
 ```
+
+---
+
+##  Armstrong Number (Coding Ninjas)
+
+<P>Difficulty: Easy</P>
+
+<P>
+Problem statement
+You are given an integer ‘NUM’ . Your task is to find out whether this number is an Armstrong number or not.
+
+A k-digit number ‘NUM’ is an Armstrong number if and only if the k-th power of each digit sums to ‘NUM’.
+
+Example
+153 = 1^3 + 5^3 + 3^3.
+
+Therefore 153 is an Armstrong number.
+
+Constraints:
+1 <= ‘T’ <= 100
+1 <= ‘N’ <= 10^9
+
+Time Limit: 1 sec
+</P>
+
+```
+Sample Input 1:
+1
+13
+Sample Output 1:
+NO
+Explanation For Sample Input 1:
+As 1^2 + 3^2 = 10 which is not equal to 13.So we can say it is not an Armstrong number.
+Sample Input 2:
+1
+371
+Sample Output 2:
+YES
+```
+### Solution: 
+
+```
+#include <bits/stdc++.h> 
+bool isArmstrong(int num) {
+    // Write your code here
+    int duplicate = num;
+    int digits = 0;
+    int temp = num;
+    while (temp != 0)
+    {
+        digits++;
+        temp /=10;
+    }
+    int sum = 0;
+    temp = num; 
+    while (temp != 0)
+    {
+        int LastDigit = temp%10;
+        sum += pow(LastDigit,digits);
+        temp /=10;
+    }
+    return sum == duplicate;
+}
+```
