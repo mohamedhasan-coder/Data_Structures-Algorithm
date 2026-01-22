@@ -249,3 +249,4 @@ bool isArmstrong(int num) {
     return sum == duplicate;
 }
 ```
+---
