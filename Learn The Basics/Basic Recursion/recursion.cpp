@@ -8,7 +8,7 @@ using namespace std;
 
 int cnt = 0;
 
-void Printn()
+void Print()
 {
     if (cnt == 4)
         return; 
@@ -19,6 +19,6 @@ void Printn()
 
 int main()
 {
-    Printn();
+    Print();
     return 0;
 }
