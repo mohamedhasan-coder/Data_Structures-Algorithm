@@ -14,7 +14,7 @@ void Print()
         return; 
     cout<<cnt<<endl;
     cnt++;
-    Printn();
+    Print();
 }
 
 int main()
