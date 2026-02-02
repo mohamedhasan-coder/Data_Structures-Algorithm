@@ -125,3 +125,87 @@ class Solution {
 };
 
 ```
+---
+
+## Sum of First N Numbers (Code Ninja)
+
+<P>
+
+Difficulty: Easy
+Problem statement
+You are given an integer ‘n’.
+
+
+
+Your task is determining the sum of the first ‘n’ natural numbers and returning it.
+
+
+
+Example:
+Input: ‘n’ = 3
+
+Output: 6
+
+Explanation: The sum of the first 3 natural numbers is 1 + 2 + 3, equal to 6.
+</P>
+
+### Solution 
+
+```
+long long sumFirstN(long long n) {
+    return n * (n + 1) / 2;
+}
+
+/*
+  Functional Approach
+  long long sumFirstN(long long n) {
+    // Write your code here.
+    if (n == 0)
+        return 0; 
+    return n+sumFirstN(n-1);
+}
+*/
+
+```
+
+---
+## Factorial (Geeks For Geeks)
+
+<P>
+  Difficulty: Basic
+
+  Given a positive integer, n. Find the factorial of n.
+
+Examples :
+
+Input: n = 5
+Output: 120
+Explanation: 1 x 2 x 3 x 4 x 5 = 120
+Input: n = 4
+Output: 24
+Explanation: 1 x 2 x 3 x 4 = 24
+Constraints:
+0 ≤ n ≤ 12
+
+Expected Complexities
+Time Complexity: O(n)
+Auxiliary Space: O(1)
+</P>
+
+### Solution 
+
+```
+
+class Solution {
+  public:
+    int factorial(int n) {
+        // code here
+        if (n == 0)
+            return 1;
+        return n * factorial(n-1);
+    }
+};
+
+```
+
+---
