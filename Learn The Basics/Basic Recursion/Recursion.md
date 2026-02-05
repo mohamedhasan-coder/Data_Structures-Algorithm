@@ -209,3 +209,74 @@ class Solution {
 ```
 
 ---
+## Reverse an Array (Geeks For Geeks)
+
+<P>
+  Difficulty: Easy
+
+  You are given an array of integers arr[]. You have to reverse the given array.
+
+Note: Modify the array in place.
+
+Examples:
+
+Input: arr = [1, 4, 3, 2, 6, 5]
+Output: [5, 6, 2, 3, 4, 1]
+Explanation: The elements of the array are [1, 4, 3, 2, 6, 5]. After reversing the array, the first element goes to the last position, the second element goes to the second last position and so on. Hence, the answer is [5, 6, 2, 3, 4, 1].
+Input: arr = [4, 5, 2]
+Output: [2, 5, 4]
+Explanation: The elements of the array are [4, 5, 2]. The reversed array will be [2, 5, 4].
+Input: arr = [1]
+Output: [1]
+Explanation: The array has only single element, hence the reversed array is same as the original.
+Constraints:
+1 ≤ arr.size() ≤ 105
+0 ≤ arr[i] ≤ 105
+
+Expected Complexities
+Time Complexity: O(n)
+Auxiliary Space: O(1)
+
+</P>
+
+### Solution 1: (Recursion): 
+
+```
+class Solution {
+  public:
+    void reverseArray(vector<int> &arr) {
+        // code here
+        static int i=0; 
+        
+        int n = arr.size();
+
+        if (i >= n-i-1)
+        {
+            i = 0;
+            return;
+        }
+        
+        swap(arr[i],arr[n-i-1]);
+        i++;
+        reverseArray(arr);
+    }
+};
+
+```
+### Solution 2: (Two Pointer Iterative)
+
+```
+class Solution {
+  public:
+    void reverseArray(vector<int> &arr) {
+        int l = 0, r = arr.size() - 1;
+        while (l < r) {
+            swap(arr[l], arr[r]);
+            l++;
+            r--;
+        }
+    }
+};
+
+```
+---
