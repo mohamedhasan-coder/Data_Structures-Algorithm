@@ -47,3 +47,64 @@ class Solution {
 };
 ```
 ---
+
+## Most Frequent Element in an Array ( Geeks For Geeks ) 
+
+<P>
+  Difficulty: Easy
+
+  You are given an integer array arr[]. You need to return the element which occurs maximum times in arr[].
+Note: If multiple such elements exists return the maximum element.
+
+Example: 
+
+Input: arr[] = [1, 2, 2, 2, 4, 1]
+Output: 2
+Explanation: 2 is most frequent element of this array with 3 occurrences.
+Input: arr[] = [1, -5, 8, 1]
+Output: 1
+Explanation: 1 is most frequent element of this array with 2 occurrences.
+Input: arr[] = [3, 0, 0, 3, 8]
+Output: 3
+Explanation: 0 and 3 are two most frequent elements of this array. 3 is the maximum one.
+Constraints:
+1 ≤ arr.size() ≤ 105
+-105 ≤ arr[i] ≤ 105
+</P>
+
+### Solution: 
+
+```
+
+class Solution {
+  public:
+    int mostFreqEle(vector<int>& arr) {
+        // code here
+        unordered_map<int,int> freq;
+        
+        for (int x: arr)
+        {
+            freq[x]++;
+        }
+        
+        int max_freq = 0; 
+        int ans = INT_MIN;
+        
+        for (auto &it : freq)
+        {
+            int val = it.first;
+            
+            int count = it.second;
+            
+            if  (count>max_freq || (count == max_freq && val>ans))
+            {
+                max_freq = count;
+                ans = val;
+            }
+        }
+        return ans;
+    }
+};
+
+```
+---
