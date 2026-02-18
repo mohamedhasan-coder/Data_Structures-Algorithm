@@ -4,6 +4,7 @@
 
 <P>
   Difficulty: Easy
+  
   Given an array arr, use selection sort to sort arr[] in increasing order.
 
 Examples :
