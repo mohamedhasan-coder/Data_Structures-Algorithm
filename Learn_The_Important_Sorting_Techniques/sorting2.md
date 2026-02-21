@@ -2,7 +2,7 @@
 
 --- 
 
-## Merge Sort (GFG): 
+## Merge Sort (GFG):  
 
 <P> 
  Difficulty: Medium
