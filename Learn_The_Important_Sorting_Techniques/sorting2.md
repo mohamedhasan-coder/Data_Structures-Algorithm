@@ -4,7 +4,7 @@
 
 ## Merge Sort (GFG):  
 
-<P> 
+<P>  
  Difficulty: Medium
 
   Merge Sort
