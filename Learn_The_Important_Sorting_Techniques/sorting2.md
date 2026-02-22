@@ -214,3 +214,41 @@ Auxiliary Space: O(n)
 
 ### Solution: 
 
+```
+class Solution {
+  public:
+int partition(vector<int>& arr, int low, int high) {
+    int pivot = arr[low];
+    int i = low;
+    int j = high;
+
+    while (i < j) {
+        while (arr[i] <= pivot && i <= high - 1) {
+            i++;
+        }
+        while (arr[j] > pivot && j >= low + 1) {
+            j--;
+        }
+        if (i < j) {
+            swap(arr[i], arr[j]);
+        }
+    }
+    swap(arr[low], arr[j]);
+    return j;
+}
+
+  public:
+    void quickSort(vector<int>& arr, int low, int high) {
+    // code here
+        if(low<high)
+        {
+            int Pindex = partition(arr,low,high);
+            quickSort(arr,low,Pindex-1);
+            quickSort(arr, Pindex+1, high);
+        }
+    } 
+
+};
+
+```
+---
