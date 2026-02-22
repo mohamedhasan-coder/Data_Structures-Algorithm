@@ -179,3 +179,10 @@ class Solution {
 };
 ```
 ---
+## Quick Sort (GFG): 
+
+<P>
+ <Difficulty: Medium
+
+  
+</P>
