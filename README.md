@@ -36,9 +36,6 @@ Goal: build strong problem-solving skills for **interviews & competitive program
 - 🕸️ Graphs (BFS/DFS, Shortest Path)
 - 🧠 Dynamic Programming
 
-
-> Each folder contains **C++ solutions** with clear file names and brief comments.
-
 ---
 
 ## 🧪 Practice Platforms
