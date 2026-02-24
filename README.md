@@ -35,3 +35,84 @@ Goal: build strong problem-solving skills for **interviews & competitive program
 - 🌳 Trees & BST
 - 🕸️ Graphs (BFS/DFS, Shortest Path)
 - 🧠 Dynamic Programming
+
+
+> Each folder contains **C++ solutions** with clear file names and brief comments.
+
+---
+
+## 🧪 Practice Platforms
+
+- 🧠 **LeetCode** – primary practice  
+- 📘 **GeeksforGeeks** – concept + problems  
+- 🧩 **Coding Ninjas / CodeStudio** – Striver’s curated list  
+- 🏁 **HackerRank** – basics & SQL (optional)
+
+---
+
+## 📚 Resources
+
+- 🎥 **Striver (Take U Forward)** — A2Z DSA Playlist  
+- 🎥 **NeetCode** — patterns & explanations  
+- 🎥 **Abdul Bari** — fundamentals  
+- 📄 **Striver’s A2Z Sheet** — problem roadmap
+
+---
+
+## 🗓️ Daily Routine
+
+- 🧠 DSA: 60–90 mins (3–6 problems/day)  
+- 🔁 Revision: 15–20 mins (previous topics)  
+- ✍️ Notes: patterns, mistakes, optimizations  
+- 🗣️ Explain solutions aloud (interview prep)
+
+---
+
+## 📈 Progress Tracker
+
+- [ ] Basics  
+- [ ] Arrays & Strings  
+- [ ] Binary Search  
+- [ ] Linked List  
+- [ ] Recursion/Backtracking  
+- [ ] Bit Manipulation  
+- [ ] Stack & Queue  
+- [ ] Sliding Window & Two Pointers  
+- [ ] Heaps  
+- [ ] Greedy  
+- [ ] Trees & BST  
+- [ ] Graphs  
+- [ ] Dynamic Programming  
+
+> ⭐ Update checkboxes as you complete each section.
+
+---
+
+## 🧩 Coding Standards (C++)
+
+- Use `std::vector`, `std::unordered_map`, `std::priority_queue`
+- Prefer **O(N)** / **O(N log N)** solutions
+- Add **edge cases** & **time complexity** in comments
+- Write readable function names
+
+---
+
+## 🏁 Milestones
+
+- 🎯 50 problems → Basics + Arrays  
+- 🎯 150 problems → Core patterns covered  
+- 🎯 300 problems → Interview-ready  
+- 🎯 Weekly mock problems + revision
+
+---
+
+## 👨‍💻 Author
+
+**Hasan Techy**  
+🎓 Student | 💻 Aspiring Software Engineer
+
+---
+
+## ⭐ Support
+
+If this repo helps you, drop a ⭐ and follow the journey!
