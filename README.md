@@ -108,7 +108,7 @@ Goal: build strong problem-solving skills for **interviews & competitive program
 
 ## 👨‍💻 Author
 
-**Hasan Techy**  
+**Mohamed Hasan M**  
 🎓 Student | 💻 Aspiring Software Engineer
 
 ---
