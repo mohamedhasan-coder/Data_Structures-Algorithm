@@ -40,10 +40,8 @@ Goal: build strong problem-solving skills for **interviews & competitive program
 
 ## 🧪 Practice Platforms
 
-- 🧠 **LeetCode** – primary practice  
-- 📘 **GeeksforGeeks** – concept + problems  
-- 🧩 **Coding Ninjas / CodeStudio** – Striver’s curated list  
-- 🏁 **HackerRank** – basics & SQL (optional)
+- 🧠 **LeetCode**: https://leetcode.com/u/mohamedhasan8403/  
+- 📘 **GeeksforGeeks**: https://www.geeksforgeeks.org/profile/mohamedhasan  
 
 ---
 
