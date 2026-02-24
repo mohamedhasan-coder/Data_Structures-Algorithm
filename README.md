@@ -68,26 +68,6 @@ Goal: build strong problem-solving skills for **interviews & competitive program
 
 ---
 
-## 📈 Progress Tracker
-
-- [ ] Basics  
-- [ ] Arrays & Strings  
-- [ ] Binary Search  
-- [ ] Linked List  
-- [ ] Recursion/Backtracking  
-- [ ] Bit Manipulation  
-- [ ] Stack & Queue  
-- [ ] Sliding Window & Two Pointers  
-- [ ] Heaps  
-- [ ] Greedy  
-- [ ] Trees & BST  
-- [ ] Graphs  
-- [ ] Dynamic Programming  
-
-> ⭐ Update checkboxes as you complete each section.
-
----
-
 ## 🧩 Coding Standards (C++)
 
 - Use `std::vector`, `std::unordered_map`, `std::priority_queue`
