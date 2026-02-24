@@ -40,8 +40,8 @@ Goal: build strong problem-solving skills for **interviews & competitive program
 
 ## 🧪 Practice Platforms
 
-[![LeetCode](https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png)](https://leetcode.com/u/mohamedhasan8403/)
-[![GeeksforGeeks](https://upload.wikimedia.org/wikipedia/commons/4/43/GeeksforGeeks.svg)](https://www.geeksforgeeks.org/profile/mohamedhasan)
+[![LeetCode](https://img.shields.io/badge/LeetCode-Profile-orange?logo=leetcode)](https://leetcode.com/u/mohamedhasan8403/)
+[![GeeksforGeeks](https://img.shields.io/badge/GeeksforGeeks-Profile-brightgreen?logo=geeksforgeeks)](https://www.geeksforgeeks.org/profile/mohamedhasan)
 
 ---
 
