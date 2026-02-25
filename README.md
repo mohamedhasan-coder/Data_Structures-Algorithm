@@ -72,7 +72,7 @@ Goal: build strong problem-solving skills for **interviews & competitive program
 
 ---
 
-## 🏁 Milestones
+## 🏁 Milestones To 
 
 - 🎯 50 problems → Basics + Arrays  
 - 🎯 150 problems → Core patterns covered  
