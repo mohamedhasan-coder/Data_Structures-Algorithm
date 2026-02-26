@@ -10,7 +10,7 @@ Goal: build strong problem-solving skills for **interviews & competitive program
 
 ---
 
-## 🎯 Goals
+## 🎯 Goals 
 
 - ✅ Complete **Striver’s A2Z DSA Sheet** 
 - ✅ Solve **300–400+ problems** on LeetCode/GFG
