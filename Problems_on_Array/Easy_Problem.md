@@ -394,3 +394,85 @@ vector<int> rotateArray(vector<int> arr, int k) {
 }
 ```
 ---
+## Move Zeroes (258.Leetcode):
+
+<P>
+  Diffculty: Easy
+  Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+
+Note that you must do this in-place without making a copy of the array.
+
+ 
+
+Example 1:
+
+Input: nums = [0,1,0,3,12]
+Output: [1,3,12,0,0]
+Example 2:
+
+Input: nums = [0]
+Output: [0]
+ 
+</P>
+
+### Solution: 
+
+#### Brute Force Solution: 
+
+```
+class Solution {
+public:
+    vector<int> moveZeroes(vector<int>& arr) {
+        vector<int> temp(arr.size(), 0);
+
+        int index = 0;
+
+        for (int i = 0; i < arr.size(); i++) {
+            // If non-zero, add to temp
+            if (arr[i] != 0) {
+                temp[index] = arr[i];
+                index++;
+            }
+        }
+
+        for (int i = 0; i < arr.size(); i++) {
+            arr[i] = temp[i];
+        }
+
+        return arr;
+    }
+};
+```
+#### Optimal Approach: 
+
+```
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int n = nums.size();
+        int j = -1;
+
+        for (int i =0; i<n;i++)
+        {
+            if(nums[i] == 0)
+            {
+                j=i;
+                break;
+            }
+        }
+
+        if(j == -1) return;
+
+        for(int i = j+1; i<n;i++)
+        {
+            if(nums[i] != 0)
+            {
+                swap(nums[i], nums[j]);
+                j++;
+            }
+        }
+
+        return;
+    }
+};
+```
