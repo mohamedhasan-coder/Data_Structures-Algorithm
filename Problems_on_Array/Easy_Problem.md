@@ -5,7 +5,7 @@
 <P>
   Difficulty: Basic  
 
-  Given an array arr[]. The task is to find the largest element and return it. 
+  Given an array arr[]. The task is to find the largest element and return it.  
 
 Examples: 
 
