@@ -8,7 +8,7 @@
 This repository tracks my **Data Structures & Algorithms (DSA) learning journey in C++** following **Striver’s A2Z DSA She et**.   
 Goal: build strong problem-solving skills for **interviews & competitive programming**. 
   
----  
+---   
 
 ## 🎯 Goals   
 
