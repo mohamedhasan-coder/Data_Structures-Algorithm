@@ -831,3 +831,120 @@ public:
 };
 ```
 ---
+## Missing Number: (268.Leetcode):
+
+<P>
+  Difficulty: Easy
+  Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
+
+ 
+
+Example 1:
+
+Input: nums = [3,0,1]
+
+Output: 2
+
+Explanation:
+
+n = 3 since there are 3 numbers, so all numbers are in the range [0,3]. 2 is the missing number in the range since it does not appear in nums.
+
+Example 2:
+
+Input: nums = [0,1]
+
+Output: 2
+
+Explanation:
+
+n = 2 since there are 2 numbers, so all numbers are in the range [0,2]. 2 is the missing number in the range since it does not appear in nums.
+
+Example 3:
+
+Input: nums = [9,6,4,2,3,5,7,0,1]
+
+Output: 8
+
+Explanation:
+
+n = 9 since there are 9 numbers, so all numbers are in the range [0,9]. 8 is the missing number in the range since it does not appear in nums.
+
+Constraints:
+
+n == nums.length
+1 <= n <= 104
+0 <= nums[i] <= n
+All the numbers of nums are unique.
+ 
+
+Follow up: Could you implement a solution using only O(1) extra space complexity and O(n) runtime complexity?
+</P>
+
+### Solution:
+```
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int n = nums.size();
+        int xor1 = 0, xor2 = 0;
+
+        for (int i =0; i<nums.size();i++)
+        {
+            xor2 = xor2 ^ nums[i];
+            xor1 = xor1 ^ i;
+        }
+        xor1 = xor1 ^ n;
+        return xor1 ^ xor2;
+    }
+};
+```
+---
+## Missing Number: (Geeks For Geeks)
+
+<P>
+  Difficulty: Easy
+  You are given an array arr[] of size n - 1 that contains distinct integers in the range from 1 to n (inclusive). This array represents a permutation of the integers from 1 to n with one element missing. Your task is to identify and return the missing element.
+
+Examples:
+
+Input: arr[] = [1, 2, 3, 5]
+Output: 4
+Explanation: All the numbers from 1 to 5 are present except 4.
+Input: arr[] = [8, 2, 4, 5, 3, 7, 1]
+Output: 6
+Explanation: All the numbers from 1 to 8 are present except 6.
+Input: arr[] = [1]
+Output: 2
+Explanation: Only 1 is present so the missing element is 2.
+Constraints:
+1 ≤ arr.size() ≤ 106
+1 ≤ arr[i] ≤ arr.size() + 1
+
+Expected Complexities
+Time Complexity: O(n)
+Auxiliary Space: O(1)
+</P>
+
+### Solution:
+
+```
+ class Solution {
+  public:
+    int missingNum(vector<int>& arr) {
+        // code here
+        int n = arr.size() + 1;
+        
+        int xor1 = 0;
+        int xor2 = 0;
+        
+        for (int i = 0; i<arr.size();i++)
+        {
+            xor2 = xor2 ^ arr[i];
+            xor1 = xor1 ^ (i+1);
+        }
+        xor1 = xor1 ^ n;
+        return xor1 ^ xor2;
+    }
+};
+```
+---
