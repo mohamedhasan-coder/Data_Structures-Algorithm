@@ -4,7 +4,7 @@
 ## Print GFG n times ( Geeks For Geeks )
  
 <P>
-  Difficulty: Easy
+  Difficulty: Easy 
 
   Print GFG n times without the loop.
   
