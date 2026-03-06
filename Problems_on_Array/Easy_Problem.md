@@ -1,4 +1,4 @@
-6# Easy Problems on Array: 
+# Easy Problems on Array: 
 ---
 ## Largest in Array (GFG): 
 
