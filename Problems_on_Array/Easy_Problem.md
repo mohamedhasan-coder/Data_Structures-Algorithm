@@ -1121,3 +1121,51 @@ class Solution {
 };
 ```
 ---
+## Longest subarray with given sum K(positives): (Code Ninja):
+
+difficulty: Easy
+
+Problem statement
+You are given an array 'a' of size 'n' and an integer 'k'.
+Find the length of the longest subarray of 'a' whose sum is equal to 'k'.
+Example :
+Input: ‘n’ = 7 ‘k’ = 3
+‘a’ = [1, 2, 3, 1, 1, 1, 1]
+
+Output: 3
+
+Explanation: Subarrays whose sum = ‘3’ are:
+
+[1, 2], [3], [1, 1, 1] and [1, 1, 1]
+
+Here, the length of the longest subarray is 3, which is our final answer.
+
+
+### Solution: 
+
+```
+int longestSubarrayWithSumK(vector<int> a, long long k) {
+    // Write your code here
+    int left = 0, right = 0;
+    long long sum = a[0];
+    int maxLen = 0;
+    int n = a.size();
+
+    while (right < n)
+    {
+        while(left <= right  && sum>k) 
+        {
+            sum -= a[left];
+            left++;
+        }
+        if(sum == k)
+        {
+            maxLen = max(maxLen, right - left + 1);
+        }
+        right++;
+        if (right < n ) sum += a[right];
+    }
+    return maxLen;
+}
+```
+---
