@@ -9,7 +9,7 @@ public:
             cout << arr[i] << " ";   
         } 
         cout << endl;  
-    } 
+    }  
     
     void reverseArray(int arr[], int n) {
         int left = 0, right = n - 1;
