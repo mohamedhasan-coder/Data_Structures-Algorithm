@@ -24,6 +24,7 @@ Goal: build strong problem-solving skills for **interviews & competitive program
 
 - 🧱 Basics (Time/Space Complexity, STL)
 - Arrays
+- Strings
 - 🔍 Binary Search
 - 🧵 Linked List
 - 🧮 Recursion & Backtracking
