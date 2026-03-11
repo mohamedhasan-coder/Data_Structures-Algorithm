@@ -1,4 +1,4 @@
- # 🚀 DSA Learning Journey (C++) — Striver’s Sheet
+  # 🚀 DSA Learning Journey (C++) — Striver’s Sheet
 
 ![C++](https://img.shields.io/badge/C%2B%2B-17-blue?logo=c%2B%2B)
 ![DSA](https://img.shields.io/badge/DSA-Practice-success)
@@ -23,7 +23,7 @@ Goal: build strong problem-solving skills for **interviews & competitive program
 ## 🧭 Roadmap (A2Z Topics)  
 
 - 🧱 Basics (Time/Space Complexity, STL)
-- 📦 Arrays & Strings
+- 
 - 🔍 Binary Search
 - 🧵 Linked List
 - 🧮 Recursion & Backtracking
