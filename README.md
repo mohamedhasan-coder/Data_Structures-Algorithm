@@ -6,7 +6,7 @@
 ![Status](https://img.shields.io/badge/Status-In%20Progress-yellow) 
 
 This repository tracks my **Data Structures & Algorithms (DSA) learning journey in C++** following **Striver’s A2Z DSA Sheet**.   
-Goalbuild strong problem-solving skills for **interviews & competitive programming**. 
+**Goal:** build strong problem-solving skills for **interviews & competitive programming**. 
   
 ---   
 
