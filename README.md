@@ -28,7 +28,7 @@ This repository tracks my **Data Structures & Algorithms (DSA) learning journey 
 - Binary Search
 - Linked List
 - Recursion & Backtracking
-- 🧲 Bit Manipulation
+- Bit Manipulation
 - 📚 Stack & Queue
 - 🪟 Sliding Window & Two Pointers
 - 🧺 Heaps & Priority Queue
