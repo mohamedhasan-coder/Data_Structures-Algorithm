@@ -25,7 +25,7 @@ This repository tracks my **Data Structures & Algorithms (DSA) learning journey 
 - Basics (Time/Space Complexity, STL)
 - Arrays
 - Strings
-- 🔍 Binary Search
+- Binary Search
 - 🧵 Linked List
 - 🧮 Recursion & Backtracking
 - 🧲 Bit Manipulation
