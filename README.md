@@ -33,7 +33,7 @@ This repository tracks my **Data Structures & Algorithms (DSA) learning journey 
 - Sliding Window & Two Pointers
 - Heaps & Priority Queue
 - Greedy Algorithms
-- 🌳 Trees & BST
+- Trees & BST
 - 🕸️ Graphs (BFS/DFS, Shortest Path)
 - Dynamic Programming
 
