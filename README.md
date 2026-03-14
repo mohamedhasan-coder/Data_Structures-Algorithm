@@ -30,7 +30,7 @@ This repository tracks my **Data Structures & Algorithms (DSA) learning journey 
 - Recursion & Backtracking
 - Bit Manipulation
 - Stack & Queue
-- 🪟 Sliding Window & Two Pointers
+- Sliding Window & Two Pointers
 - 🧺 Heaps & Priority Queue
 - 🤝 Greedy Algorithms
 - 🌳 Trees & BST
