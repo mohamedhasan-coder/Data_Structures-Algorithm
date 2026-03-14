@@ -34,7 +34,7 @@ This repository tracks my **Data Structures & Algorithms (DSA) learning journey 
 - Heaps & Priority Queue
 - Greedy Algorithms
 - Trees & BST
-- 🕸️ Graphs (BFS/DFS, Shortest Path)
+- Graphs (BFS/DFS, Shortest Path)
 - Dynamic Programming
 
 ---
