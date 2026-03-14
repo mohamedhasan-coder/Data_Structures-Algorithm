@@ -31,7 +31,7 @@ This repository tracks my **Data Structures & Algorithms (DSA) learning journey 
 - Bit Manipulation
 - Stack & Queue
 - Sliding Window & Two Pointers
-- 🧺 Heaps & Priority Queue
+- Heaps & Priority Queue
 - 🤝 Greedy Algorithms
 - 🌳 Trees & BST
 - 🕸️ Graphs (BFS/DFS, Shortest Path)
