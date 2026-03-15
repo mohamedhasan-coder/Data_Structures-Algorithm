@@ -11,7 +11,7 @@ This repository tracks my **Data Structures & Algorithms (DSA) learning journey 
 ---   
 
 ## 🎯 Goals   
-
+   
 - ✅ Complete **Striver’s A2Z DSA Sheet**        
 - ✅ Solve **300–400+ problems** on LeetCode/GFG/Code Ninja
 - ✅ Master **core patterns** (Two Pointers, Sliding Window, Binary Search, Greedy, Heaps, DP)
