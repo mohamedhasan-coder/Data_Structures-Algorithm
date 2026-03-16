@@ -46,7 +46,7 @@ This repository tracks my **Data Structures & Algorithms (DSA) learning journey 
 
 ---
 
-## 📚 Resources
+## Resources
 
 - 🎥 **Striver (Take U Forward)** — A2Z DSA Playlist  
 - 🎥 **NeetCode** — patterns & explanations  
