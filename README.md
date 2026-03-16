@@ -20,7 +20,7 @@ This repository tracks my **Data Structures & Algorithms (DSA) learning journey 
  
 --- 
 
-## 🧭 Roadmap (A2Z Topics)  
+## Roadmap (A2Z Topics)  
 
 - Basics (Time/Space Complexity, STL)
 - Arrays
