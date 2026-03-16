@@ -39,7 +39,7 @@ This repository tracks my **Data Structures & Algorithms (DSA) learning journey 
   
 ---
 
-## 🧪 Practice Platforms
+## Practice Platforms
 
 [![LeetCode](https://img.shields.io/badge/LeetCode-Profile-orange?logo=leetcode)](https://leetcode.com/u/mohamedhasan8403/)
 [![GeeksforGeeks](https://img.shields.io/badge/GeeksforGeeks-Profile-brightgreen?logo=geeksforgeeks)](https://www.geeksforgeeks.org/profile/mohamedhasan)
