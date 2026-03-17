@@ -82,7 +82,7 @@ This repository tracks my **Data Structures & Algorithms (DSA) learning journey 
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 **Mohamed Hasan M**  
 🎓 Student | 💻 Aspiring Software Engineer
