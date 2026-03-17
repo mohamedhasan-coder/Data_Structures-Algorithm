@@ -64,7 +64,7 @@ This repository tracks my **Data Structures & Algorithms (DSA) learning journey 
 
 ---
 
-## 🧩 Coding Standards (C++)
+## Coding Standards (C++)
 
 - Use `std::vector`, `std::unordered_map`, `std::priority_queue`
 - Prefer **O(N)** / **O(N log N)** solutions
