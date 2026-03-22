@@ -1,4 +1,4 @@
-# Medium Problem on Arrays:                  
+# Medium Problem on Arrays:                                
 ---
 ## 1. Two Sum (Leetcode) Give Index Value:    
  
