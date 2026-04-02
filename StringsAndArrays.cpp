@@ -16,7 +16,7 @@ public:
         while (left < right) {
             swap(arr[left], arr[right]);
             left++;
-            right--;
+            right--; 
         } 
     }
 
