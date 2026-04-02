@@ -17,7 +17,7 @@ public:
             swap(arr[left], arr[right]);
             left++;
             right--;
-        }
+        } 
     }
 
     int removeElement(int arr[], int n, int value) {
