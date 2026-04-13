@@ -1,6 +1,6 @@
 # Medium Problem on Arrays:                                                    
 ---                                                            
-## 1. Two Sum (Leetcode) Give Index Value:                  
+## 1. Two Sum (Leetcode) Give Index Value:   
    Difficulty: Easy                                                                                                              
                            
   Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target .            
