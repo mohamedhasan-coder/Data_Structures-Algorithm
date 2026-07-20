@@ -323,3 +323,150 @@ public:
 };
 ```
 ---
+## Print Subarray With Maximum Subarray Sum: (Code Chef): 
+
+<P> 
+   Difficulty: Medium 
+
+   Given an integer array 
+n
+u
+m
+s
+nums, find the longest contiguous subarray (containing at least one element) with the largest sum and print the elements of that subarray.
+
+Note:
+If two or more sub arrays have the same length and same max sum then you should return the leftmost array.
+
+Function Declaration
+Function Name
+m
+a
+x
+S
+u
+b
+A
+r
+r
+a
+y
+maxSubArray – This function finds the longest contiguous subarray (with at least one element) that has the maximum possible sum, and returns the elements of that subarray. If multiple subarrays have the same maximum sum and same length, the function returns the leftmost such subarray.
+
+Parameters
+n
+u
+m
+s
+nums : A reference to a vector of integers representing the array.
+
+Each element can be negative, zero, or positive.
+Return Value
+Returns an array containing the elements of the contiguous subarray that:
+
+Has the maximum subarray sum.
+If multiple subarrays achieve this sum, the function returns the longest one.
+If still tied, returns the leftmost such subarray.
+Constraints
+1
+≤
+n
+u
+m
+s
+.
+l
+e
+n
+g
+t
+h
+≤
+10
+5
+1≤nums.length≤10 
+5
+ 
+−
+10
+4
+≤
+n
+u
+m
+s
+[
+i
+]
+≤
+10
+4
+−10 
+4
+ ≤nums[i]≤10 
+4
+ 
+The solution must run in O(N) time due to input size.
+Input Format
+The first line contains a single integer 
+T
+T — the number of test cases.
+
+For each test case:
+
+The first line contains an integer 
+N
+N — the size of the array.
+The next line contains 
+N
+N space-separated integers representing the array elements.
+Output Format
+For each test case, print the elements of the longest maximum-sum subarray on a new line.
+Sample 1:
+Input
+Output
+2
+6
+4 -1 2 1 -5 4
+5
+1 2 -1 -2 5
+4 -1 2 1
+1 2 -1 -2 5
+Explanation:
+For the first test case the subarray from index 0 to 3 has the largest sum = 6.
+The second test case the subarray from index 0 to 4 has the largest sum = 5.
+</P>
+
+### Solution: 
+
+```
+class Solution {
+public:
+    vector<int> maxSubArray(vector<int>& nums) {
+        long long maxSum = nums[0], currSum = nums[0];
+        int start = 0, end = 0, tempStart = 0;
+
+        for (int i = 1; i < nums.size(); i++) {
+            if (currSum + nums[i] < nums[i]) {
+                currSum = nums[i];
+                tempStart = i;
+            } else {
+                currSum += nums[i];
+            }
+
+            int currLen = i - tempStart + 1;
+            int bestLen = end - start + 1;
+
+            if (currSum > maxSum ||
+                (currSum == maxSum && currLen > bestLen)) {
+                maxSum = currSum;
+                start = tempStart;
+                end = i;
+            }
+        }
+
+        return vector<int>(nums.begin() + start, nums.begin() + end + 1);
+    }
+};
+```
+---
