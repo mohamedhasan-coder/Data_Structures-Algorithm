@@ -1065,3 +1065,74 @@ public:
 };
 ```
 ---
+## Spiral Matrix (54. Leetcode):
+
+<P> 
+Difficulty: Medium
+
+Given an m x n matrix, return all elements of the matrix in spiral order.
+
+ <img width="486" height="431" alt="image" src="https://github.com/user-attachments/assets/a94428e5-cc4d-4f08-ab24-365201d2f3d4" />
+<img width="654" height="437" alt="image" src="https://github.com/user-attachments/assets/3cc7cd52-3b3a-4e03-bc62-a96e356d3212" />
+
+
+Example 1:
+
+
+Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
+Output: [1,2,3,6,9,8,7,4,5]
+Example 2:
+
+
+Input: matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+Output: [1,2,3,4,8,12,11,10,9,5,6,7]
+ 
+
+Constraints:
+
+m == matrix.length
+n == matrix[i].length
+1 <= m, n <= 10
+-100 <= matrix[i][j] <= 100
+</P>
+
+### Solution: 
+
+```
+class Solution {
+public:
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        int n = matrix.size();
+        int m = matrix[0].size();
+        int left = 0, right = m-1;
+        int top = 0, bottom = n-1;
+        vector<int> ans;
+
+        while(top <= bottom && left <= right){
+            // right
+        for(int i = left; i<=right;i++){ 
+            ans.push_back(matrix[top][i]);
+        }
+        top++;
+        for(int i=top;i<=bottom;i++){ 
+            ans.push_back(matrix[i][right]);
+        }
+        right--;
+        if(top <= bottom){
+            for(int i=right;i>=left;i--){
+            ans.push_back(matrix[bottom][i]);
+        }
+        bottom--;
+        }
+        if(left <= right){ 
+           for(int i = bottom;i>=top;i--){ 
+            ans.push_back(matrix[i][left]);
+        }
+        left++;
+        } 
+        }
+    return ans;
+    } 
+};
+```
+---
