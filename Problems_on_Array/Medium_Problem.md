@@ -1,5 +1,4 @@
-
----                                                              
+                                                     
 ## 1. Two Sum (Leetcode) Give Index Value:    
    Difficulty: Easy  
                            
