@@ -1,4 +1,4 @@
-<img width="651" height="692" alt="image" src="https://github.com/user-attachments/assets/0d3aa8f0-0f36-49cc-ae2e-946f3d0658c0" /># Medium Problem on Arrays:                                                       
+
 ---                                                              
 ## 1. Two Sum (Leetcode) Give Index Value:    
    Difficulty: Easy  
