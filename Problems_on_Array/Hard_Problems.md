@@ -115,6 +115,8 @@ public:
                 cnt1--,cnt2--;
             }
         }
+            cnt1 = 0;
+            cnt2 = 0;
             vector<int>ls;
             for(int i=0;i<nums.size();i++){ 
                 if(el1 == nums[i]){
@@ -124,11 +126,11 @@ public:
                     cnt2++;
                 }
             }
-            int mini = (int)(nums.size()/3)+1;
-            if(cnt1 > mini){
+            int mini = nums.size()/3+1;
+            if(cnt1 >= mini){
                 ls.push_back(el1);
             }
-            if(cnt2 > mini){
+            if(cnt2 >= mini){
                 ls.push_back(el2);
             }
             return ls;
