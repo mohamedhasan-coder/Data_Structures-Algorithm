@@ -718,3 +718,99 @@ public:
 };
 ```
 ---
+## Missing and Repeating (Geeks For Geeks): 
+
+<P>
+ Difficulty: Easy
+
+ Given an unsorted array arr[] of size n, containing elements from the range 1 to n, it is known that one number in this range is missing, and another number occurs twice in the array, find both the duplicate number and the missing number.
+
+Examples:
+
+Input: arr[] = [2, 2]
+Output: [2, 1]
+Explanation: Repeating number is 2 and the missing number is 1.
+Input: arr[] = [1, 3, 3] 
+Output: [3, 2]
+Explanation: Repeating number is 3 and the missing number is 2.
+Input: arr[] = [4, 3, 6, 2, 1, 1]
+Output: [1, 5]
+Explanation: Repeating number is 1 and the missing number is 5.
+Constraints:
+2 ≤ n ≤ 106
+1 ≤ arr[i] ≤ n
+
+
+</P>
+
+### Solution (Maths Approach): 
+
+```
+class Solution {
+  public:
+    vector<int> findTwoElement(vector<int>& arr) {
+        // code here
+        long long n = arr.size();
+        //s-sn
+        //s2-s2N
+        long long SN = (n*(n+1)) / 2;
+        long long S2N = (n * (n+1) * (2*n+1)) / 6;
+        long long s = 0, s2 = 0;
+        for(int i =0;i<n;i++){
+            s += arr[i];
+            s2 += (long long)arr[i] * (long long)arr[i];
+        }
+        long long val1 = s - SN;
+        long long val2 = s2 - S2N;
+        
+        val2 = val2/val1;
+        long long x = (val1 + val2)/2;
+        long long y = x-val1;
+        return {(int)x, (int)y};
+    }
+};
+```
+
+### Solution(Xor Apporach):
+
+```
+class Solution {
+public:
+    vector<int> findTwoElement(vector<int>& arr) {
+        int n = arr.size();
+        int xr = 0;
+
+        // Step 1: XOR all elements and numbers from 1..n
+        for (int i = 0; i < n; i++) {
+            xr ^= arr[i];
+            xr ^= (i + 1);
+        }
+
+        // Step 2: Find rightmost set bit
+        int bitNo = xr & ~(xr - 1);
+
+        int zero = 0, one = 0;
+
+        // Step 3: Divide into two groups based on bitNo
+        for (int i = 0; i < n; i++) {
+            if ((arr[i] & bitNo) != 0) one ^= arr[i];
+            else zero ^= arr[i];
+        }
+
+        for (int i = 1; i <= n; i++) {
+            if ((i & bitNo) != 0) one ^= i;
+            else zero ^= i;
+        }
+
+        // Step 4: Check which one is repeating
+        int cnt = 0;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] == zero) cnt++;
+        }
+
+        if (cnt == 2) return {zero, one};  // {repeating, missing}
+        return {one, zero};
+    }
+};
+```
+---
