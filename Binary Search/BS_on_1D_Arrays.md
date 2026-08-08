@@ -438,4 +438,188 @@ public:
     }
 };
 ```
+
+### Solution: (Using Binary Search):
+
+```
+class Solution {
+public:
+    int firstOccuracne(vector<int>& arr, int target) {
+        // code here
+        int n = arr.size();
+        int low = 0;
+        int high = n-1;
+        int first = -1;
+        while(low<=high){
+            int mid = (low+high) / 2;
+            if(arr[mid] == target){
+                first = mid;
+                high = mid - 1;
+            }
+            else if (arr[mid] < target){  
+                low = mid + 1;
+            }
+            else{
+                high = mid-1;
+            }
+        }
+    return first;
+    }
+    int lastOccurance(vector<int>& arr, int target) {
+        // code here
+        int n = arr.size();
+        int low = 0;
+        int high = n-1;
+        int last = -1;
+        while(low<=high){
+            int mid = (low+high) / 2;
+            if(arr[mid] == target){
+                last = mid;
+                low = mid+1;
+            }
+            else if (arr[mid] < target){
+                low = mid + 1;
+            }
+            else{
+                high = mid-1;
+            }
+        }
+    return last;
+    }
+    vector<int> searchRange(vector<int>& nums, int target) {
+        int first = firstOccuracne(nums,target);
+        if(first == -1) return {-1,-1};    
+        int last = lastOccurance(nums,target);
+        return{first,last};
+    }
+};
+```
+---
+## Number of Occurance (Code 360): 
+
+<P> 
+difficulty: Moderate
+
+  Problem statement
+You have been given a sorted array/list of integers 'arr' of size 'n' and an integer 'x'.
+
+
+
+Find the total number of occurrences of 'x' in the array/list.
+
+
+
+Example:
+Input: 'n' = 7, 'x' = 3
+'arr' = [1, 1, 1, 2, 2, 3, 3]
+
+Output: 2
+
+Explanation: Total occurrences of '3' in the array 'arr' is 2.
+
+
+Detailed explanation ( Input/output format, Notes, Images )
+Sample Input 1:
+7 3
+1 1 1 2 2 3 3
+
+
+Sample Output 1:
+2
+
+
+Explanation For Sample Input 1:
+In the given list, there are 2 occurrences of integer 3.
+
+
+Sample Input 2:
+ 5 6
+ 1 2 4 4 5
+
+
+Sample Output 2:
+ 0
+
+
+Explanation For Sample Input 2:
+In the given list, there are 0 occurrences of integer 6.
+
+
+Expected time complexity:
+The expected time complexity is O(log 'n').
+
+
+Constraints:
+1 <= n <= 10^4
+1 <= arr[i] <= 10^9
+1 <= x <= 10^9
+Where arr[i] represents the element i-th element in the array/list.
+
+Time Limit: 1sec
+</P>
+
+### Solution: 
+
+```
+#include <bits/stdc++.h>
+using namespace std;
+
+int firstOccurrence(vector<int> &arr, int n, int k) {
+    int low = 0, high = n - 1;
+    int first = -1;
+
+    while (low <= high) {
+        int mid = (low + high) / 2;
+        // maybe an answer
+        if (arr[mid] == k) {
+            first = mid;
+            //look for smaller index on the left
+            high = mid - 1;
+        }
+        else if (arr[mid] < k) {
+            low = mid + 1; // look on the right
+        }
+        else {
+            high = mid - 1; // look on the left
+        }
+    }
+    return first;
+}
+
+int lastOccurrence(vector<int> &arr, int n, int k) {
+    int low = 0, high = n - 1;
+    int last = -1;
+
+    while (low <= high) {
+        int mid = (low + high) / 2;
+        // maybe an answer
+        if (arr[mid] == k) {
+            last = mid;
+            //look for larger index on the right
+            low = mid + 1;
+        }
+        else if (arr[mid] < k) {
+            low = mid + 1; // look on the right
+        }
+        else {
+            high = mid - 1; // look on the left
+        }
+    }
+    return last;
+}
+
+
+pair<int, int> firstAndLastPosition(vector<int>& arr, int n, int k) {
+    int first = firstOccurrence(arr, n, k);
+    if (first == -1) return { -1, -1};
+    int last = lastOccurrence(arr, n, k);
+    return {first, last};
+}
+
+int count(vector<int>& arr, int n, int x) {
+    pair<int, int> ans = firstAndLastPosition(arr, n, x);
+    if (ans.first == -1) return 0;
+    return (ans.second - ans.first + 1);
+}
+```
 ---
