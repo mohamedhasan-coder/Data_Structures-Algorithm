@@ -864,3 +864,148 @@ public:
 };
 ```
 ---
+## Find How Many Times the Array has been Rotated: (Code Chef): 
+
+<P> 
+Dificulty: Easy
+
+  Your task is to find how many times the array has been rotated.
+
+Function Declaration
+Function Name
+c
+o
+u
+n
+t
+R
+o
+t
+a
+t
+i
+o
+n
+s
+countRotations – This function returns the number of times a sorted array has been rotated.
+
+Parameters
+n
+u
+m
+s
+nums : A reference to a rotated sorted array of unique integers.
+Return Value
+Returns an integer representing the number of right rotations applied to the array.
+Constraints
+1
+≤
+n
+≤
+10
+4
+1≤n≤10 
+4
+ 
+−
+10
+4
+≤
+n
+u
+m
+s
+[
+i
+]
+≤
+10
+4
+−10 
+4
+ ≤nums[i]≤10 
+4
+ 
+All elements in 
+n
+u
+m
+s
+nums are unique
+n
+u
+m
+s
+nums is a rotated version of a sorted array
+Input Format
+The first line contains an integer 
+T
+T — number of test cases.
+For each test case:
+One line containing an integer 
+n
+n — size of the array
+One line containing 
+n
+n space-separated integers — the rotated sorted array
+Output Format
+For each test case, print a single integer — number of rotations
+Sample 1:
+Input
+Output
+3
+7
+7 9 12 15 2 4 5
+6
+10 20 30 5 7 8
+5
+1 2 3 4 5
+4
+3
+0
+Explanation:
+For the first test case the original sorted array is [2, 4, 5, 7, 9, 12, 15].
+It has been rotated 4 times to the right.
+
+</P>
+
+### Solution: 
+
+```
+class Solution {
+public:
+    int countRotations(const vector<int>& nums) {
+        // write your code here
+        int n = nums.size();
+        int low = 0, high = n-1;
+        int ans = INT_MAX;
+        int index = -1;
+        while(low <= high){
+            int mid = (low + high) / 2;
+            if(nums[low] <= nums[high]){
+                if(nums[low] < ans){
+                    index = low;
+                    ans = nums[low];
+                }
+                break;
+            }
+            if(nums[low] <= nums[mid]){
+                if(nums[low] < ans){
+                    index = low;
+                    ans = nums[low];
+                }
+                low = mid + 1;
+            }
+            else{
+                high = mid-1; 
+                if(nums[mid] < ans){
+                    index = mid;
+                    ans = nums[mid];
+                }
+            }
+        }
+        return index;
+    }
+};
+```
+---
