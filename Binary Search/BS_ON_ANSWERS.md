@@ -204,42 +204,43 @@ piles.length <= h <= 109
 ### Solution: 
 
 ```
- class Solution {
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
 public:
-int calculateTotalHours(vector<int>& piles, int speed) {
-        int totalH = 0;
+    // Helper function to calculate total hours at given speed
+    long long calculateTotalHours(vector<int>& piles, long long speed) {
+        long long totalH = 0;
         for (int bananas : piles) {
-            totalH += ceil((double)bananas / speed);
+            // integer ceil: (bananas + speed - 1) / speed
+            totalH += (bananas + speed - 1) / speed;
         }
         return totalH;
     }
 
     // Function to find minimum eating speed
     int minEatingSpeed(vector<int>& piles, int h) {
-        // Find maximum element
-        int maxPile = *max_element(piles.begin(), piles.end());
-
-        // Initialize low and high pointers
-        int low = 1, high = maxPile;
-        int ans = maxPile;
+        long long maxPile = *max_element(piles.begin(), piles.end());
+        long long low = 1, high = maxPile;
+        long long ans = maxPile;
 
         // Binary search on answer space
         while (low <= high) {
-            int mid = (low + high) / 2;
-            int totalH = calculateTotalHours(piles, mid);
+            // Safe mid calculation with long long
+            long long mid = low + (high - low) / 2;
+            long long totalH = calculateTotalHours(piles, mid);
 
-            // If possible, try smaller speed
             if (totalH <= h) {
-                ans = mid;
-                high = mid - 1;
-            }
-            // Otherwise, try larger speed
-            else {
-                low = mid + 1;
+                ans = mid;        // feasible speed
+                high = mid - 1;   // try smaller speed
+            } else {
+                low = mid + 1;    // need larger speed
             }
         }
-        return ans;
+        return (int)ans; // final answer fits in int
     }
 };
+
 ```
 ---
