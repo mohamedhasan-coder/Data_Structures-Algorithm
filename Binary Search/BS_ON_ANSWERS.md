@@ -461,3 +461,169 @@ public:
 }; 
 ```
 ---
+## Capacity To Ship Packages Within D Days (1101.Leetcode):
+
+<P>
+  Difficulty: Medium
+
+  A conveyor belt has packages that must be shipped from one port to another within days days.
+
+The ith package on the conveyor belt has a weight of weights[i]. Each day, we load the ship with packages on the conveyor belt (in the order given by weights). We may not load more weight than the maximum weight capacity of the ship.
+
+Return the least weight capacity of the ship that will result in all the packages on the conveyor belt being shipped within days days.
+
+ 
+
+Example 1:
+
+Input: weights = [1,2,3,4,5,6,7,8,9,10], days = 5
+Output: 15
+Explanation: A ship capacity of 15 is the minimum to ship all the packages in 5 days like this:
+1st day: 1, 2, 3, 4, 5
+2nd day: 6, 7
+3rd day: 8
+4th day: 9
+5th day: 10
+
+Note that the cargo must be shipped in the order given, so using a ship of capacity 14 and splitting the packages into parts like (2, 3, 4, 5), (1, 6, 7), (8), (9), (10) is not allowed.
+Example 2:
+
+Input: weights = [3,2,2,4,1,4], days = 3
+Output: 6
+Explanation: A ship capacity of 6 is the minimum to ship all the packages in 3 days like this:
+1st day: 3, 2
+2nd day: 2, 4
+3rd day: 1, 4
+Example 3:
+
+Input: weights = [1,2,3,1,1], days = 4
+Output: 3
+Explanation:
+1st day: 1
+2nd day: 2
+3rd day: 3
+4th day: 1, 1
+ 
+
+Constraints:
+
+1 <= days <= weights.length <= 5 * 104
+1 <= weights[i] <= 500
+</P>
+
+### Solution: 
+
+```
+class Solution {
+public:
+    int findDays(vector<int>& weights, int cap){
+        int Days = 1, load =0;
+        for(int i = 0;i<weights.size();i++){
+            if(weights[i] + load > cap){
+                Days+=1;
+                load = weights[i];
+            }
+            else{
+                load += weights[i];
+            }
+        }
+        return Days;
+    }
+    int shipWithinDays(vector<int>& weights, int days) {
+        int low = *max_element(weights.begin(),weights.end());
+        int high = accumulate(weights.begin(),weights.end(),0);
+        while(low <= high){
+            int mid = (low + high) / 2;
+            int numberOfDays = findDays(weights, mid);
+            if(numberOfDays <= days){
+                high = mid - 1;
+            }
+            else{
+                low = mid + 1;
+            }
+        }
+        return low;
+    }
+};
+```
+---
+## Kth Missing Positive Number (1539. Leetcode): 
+
+<P>
+  Difficculty: Easy
+
+  Given an array arr of positive integers sorted in a strictly increasing order, and an integer k.
+
+Return the kth positive integer that is missing from this array.
+
+ 
+
+Example 1:
+
+Input: arr = [2,3,4,7,11], k = 5
+Output: 9
+Explanation: The missing positive integers are [1,5,6,8,9,10,12,13,...]. The 5th missing positive integer is 9.
+Example 2:
+
+Input: arr = [1,2,3,4], k = 2
+Output: 6
+Explanation: The missing positive integers are [5,6,7,...]. The 2nd missing positive integer is 6.
+ 
+
+Constraints:
+
+1 <= arr.length <= 1000
+1 <= arr[i] <= 1000
+1 <= k <= 1000
+arr[i] < arr[j] for 1 <= i < j <= arr.length
+ 
+
+Follow up:
+
+Could you solve this problem in less than O(n) complexity?
+</P>
+
+### Solution (Brute Force): 
+
+```
+class Solution {
+public:
+    int findKthPositive(vector<int>& arr, int k) {
+        int n=arr.size();
+        for(int x:arr){
+            if(x<=k){
+                k++;
+            }
+            else{
+                break;
+            }
+        }
+        return k;
+        
+    }
+};
+```
+
+### Solution (Optimal): 
+
+```
+class Solution {
+public:
+    int findKthPositive(vector<int>& arr, int k) {
+        int n = arr.size();
+        int low = 0, high = n-1;
+        while(low <= high){
+            int mid = (low + high) / 2;
+            int missing = arr[mid] - (mid+1);
+            if(missing < k){
+                low = mid+1;
+            }
+            else{
+                high = mid - 1;
+            }
+        }
+        return low + k;
+    }
+};
+```
+---
