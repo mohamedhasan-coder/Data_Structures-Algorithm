@@ -627,3 +627,416 @@ public:
 };
 ```
 ---
+## Aggressive Cows : (Geeks For Geeks): 
+
+<P> 
+Difficulty: Medium 
+
+  Given an integer array arr[], which denotes the positions of stalls. All the positions are distinct. There are k aggressive cows.
+
+Assign the cows to the stalls such that the minimum distance between any two cows is maximized.
+
+Examples:
+
+Input: arr[] = [1, 2, 4, 8, 9], k = 3
+Output: 3
+Explanation: The first cow can be placed at arr[0], the second at arr[2], and the third at arr[3]. The minimum distance between any two cows is 3 (between arr[0] and arr[2]), which is the maximum possible among all valid arrangements.
+Input: arr[] = [10, 1, 2, 7, 5], k = 3
+Output: 4
+Explanation: The first cow can be placed at arr[0], the second at arr[1], and the third at arr[4]. In this arrangement, the minimum distance between any two cows is 4 (between arr[1] and arr[4]), which is the maximum possible among all valid arrangements.
+Constraints:
+2 ≤ arr.size() ≤ 106
+0 ≤ arr[i] ≤ 108
+2 ≤ k ≤ arr.size()
+</P>
+
+### Solution: 
+
+```
+class Solution {
+  public:
+    bool canWePlace(vector<int> &arr, int dist, int cows){
+        int cntCows = 1;
+        int last = arr[0];
+        for(int i =0; i<arr.size();i++){
+            if(arr[i] - last >= dist){
+                cntCows++;
+                last = arr[i];
+            }
+            if(cntCows >= cows) return true;
+        }
+        return false;
+    }
+    int aggressiveCows(vector<int> &arr, int k) {
+        // code here
+        sort(arr.begin(),arr.end());
+        int n = arr.size();
+        int low = 1;
+        int high = arr[n-1] - arr[0];
+        while (low <= high){
+            int mid = (low + high) / 2;
+            if(canWePlace(arr,mid,k) == true){
+                low = mid+1;
+            }
+            else{
+                high = mid - 1;
+            }
+        }
+        return high;
+    }
+};
+```
+---
+## Allocate Books (Code 360):
+<P> 
+Difficulty: Medium 
+
+  Problem statement
+Given an array ‘arr’ of integer numbers, ‘arr[i]’ represents the number of pages in the ‘i-th’ book.
+
+
+
+There are ‘m’ number of students, and the task is to allocate all the books to the students.
+
+
+
+Allocate books in such a way that:
+
+1. Each student gets at least one book.
+2. Each book should be allocated to only one student.
+3. Book allocation should be in a contiguous manner.
+
+
+You have to allocate the book to ‘m’ students such that the maximum number of pages assigned to a student is minimum.
+
+
+
+If the allocation of books is not possible, return -1.
+
+
+
+Example:
+Input: ‘n’ = 4 ‘m’ = 2 
+‘arr’ = [12, 34, 67, 90]
+
+Output: 113
+
+Explanation: All possible ways to allocate the ‘4’ books to '2' students are:
+
+12 | 34, 67, 90 - the sum of all the pages of books allocated to student 1 is ‘12’, and student two is ‘34+ 67+ 90 = 191’, so the maximum is ‘max(12, 191)= 191’.
+
+12, 34 | 67, 90 - the sum of all the pages of books allocated to student 1 is ‘12+ 34 = 46’, and student two is ‘67+ 90 = 157’, so the maximum is ‘max(46, 157)= 157’.
+
+12, 34, 67 | 90 - the sum of all the pages of books allocated to student 1 is ‘12+ 34 +67 = 113’, and student two is ‘90’, so the maximum is ‘max(113, 90)= 113’.
+
+We are getting the minimum in the last case.
+
+Hence answer is ‘113’.
+Detailed explanation ( Input/output format, Notes, Images )
+Sample Input 1:
+4 2
+12 34 67 90
+Sample Output 1:
+113
+Explanation of sample input 1:
+All possible ways to allocate the ‘4’ books to '2' students are:
+
+12 | 34, 67, 90 - the sum of all the pages of books allocated to student 1 is ‘12’, and student two is ‘34+ 67+ 90 = 191’, so the maximum is ‘max(12, 191)= 191’.
+
+12, 34 | 67, 90 - the sum of all the pages of books allocated to student 1 is ‘12+ 34 = 46’, and student two is ‘67+ 90 = 157’, so the maximum is ‘max(46, 157)= 157’.
+
+12, 34, 67 | 90 - the sum of all the pages of books allocated to student 1 is ‘12+ 34 +67 = 113’, and student two is ‘90’, so the maximum is ‘max(113, 90)= 113’.
+
+We are getting the minimum in the last case.
+
+Hence answer is ‘113’.
+Sample Input 2:
+5 4
+25 46 28 49 24
+Sample Output 2:
+71
+Explanation of sample input 2:
+All possible ways to allocate the ‘5’ books to '4' students are:
+
+25 | 46 | 28 | 49 24 - the sum of all the pages of books allocated to students 1, 2, 3, and 4 are '25', '46', '28', and '73'. So the maximum is '73'.
+
+25 | 46 | 28 49 | 24 - the sum of all the pages of books allocated to students 1, 2, 3, and 4 are '25', '46', '77', and '24'. So the maximum is '77'.
+
+25 | 46 28 | 49 | 24 - the sum of all the pages of books allocated to students 1, 2, 3, and 4 are '25', '74', '49', and '24'. So the maximum is '74'.
+
+25 46 | 28 | 49 | 24 - the sum of all the pages of books allocated to students 1, 2, 3, and 4 are '71', '28', '49', and '24'. So the maximum is '71'.
+
+We are getting the minimum in the last case.
+
+Hence answer is ‘71’.
+Expected time complexity:
+The expected time complexity is O(n * log(s)), where ‘n’ is the number of integers in the array ‘arr’ and ‘s’ is the sum of all the elements of ‘arr’.
+Constraints:
+2 <= 'n' <= 10 ^ 3
+1 <= 'm' <= 10 ^ 3
+1 <= 'arr[i]' <= 10 ^ 9
+The sum of all arr[i] does not exceed 10 ^ 9.
+
+Where ‘n’ denotes the number of books and ‘m’ denotes the number of students. ‘arr[i]’ denotes an element at position ‘i’ in the sequence.
+
+Time limit: 1 second
+</P>
+
+### Solution: 
+
+```
+#include<bits/stdc++.h>
+int countStudents(vector<int> &arr, int pages){
+    int student = 1;
+    long long pagesStudent = 0;
+    for(int i = 0;i<arr.size();i++){
+        if(pagesStudent + arr[i] <= pages){
+            pagesStudent += arr[i];
+        }
+        else{
+            student += 1;
+            pagesStudent = arr[i];
+        }
+    }
+    return student;
+}
+int findPages(vector<int>& arr, int n, int m) {
+    // Write your code here.
+    if(m>n) return -1;
+    int low = *max_element(arr.begin(), arr.end());
+    int high = accumulate(arr.begin(), arr.end(), 0);
+    while(low <= high){
+        int mid = (low + high) / 2;
+        int students = countStudents(arr, mid);
+        if(students > m){
+            low = mid + 1;
+        }
+        else{
+            high = mid - 1;
+        }
+    }
+    return low;
+}
+```
+---
+## Spilt Array Largest Sum (410. Leetcode): 
+
+<P> 
+Difficulty: Hard
+  Given an integer array nums and an integer k, split nums into k non-empty subarrays such that the largest sum of any subarray is minimized.
+
+Return the minimized largest sum of the split.
+
+A subarray is a contiguous part of the array.
+
+ 
+
+Example 1:
+
+Input: nums = [7,2,5,10,8], k = 2
+Output: 18
+Explanation: There are four ways to split nums into two subarrays.
+The best way is to split it into [7,2,5] and [10,8], where the largest sum among the two subarrays is only 18.
+Example 2:
+
+Input: nums = [1,2,3,4,5], k = 2
+Output: 9
+Explanation: There are four ways to split nums into two subarrays.
+The best way is to split it into [1,2,3] and [4,5], where the largest sum among the two subarrays is only 9.
+ 
+
+Constraints:
+
+1 <= nums.length <= 1000
+0 <= nums[i] <= 106
+1 <= k <= min(50, nums.length)
+ 
+
+</P>
+
+### Solution: 
+
+```
+class Solution {
+public:
+    int countStudents(vector<int> &arr, int pages){
+    int student = 1;
+    long long pagesStudent = 0;
+    for(int i = 0;i<arr.size();i++){
+        if(pagesStudent + arr[i] <= pages){
+            pagesStudent += arr[i];
+        }
+        else{
+            student += 1;
+            pagesStudent = arr[i];
+        }
+    }
+    return student;
+}
+int findPages(vector<int>& arr, int n, int m) {
+    // Write your code here.
+    if(m>n) return -1;
+    int low = *max_element(arr.begin(), arr.end());
+    int high = accumulate(arr.begin(), arr.end(), 0);
+    while(low <= high){
+        int mid = (low + high) / 2;
+        int students = countStudents(arr, mid);
+        if(students > m){
+            low = mid + 1;
+        }
+        else{
+            high = mid - 1;
+        }
+    }
+    return low;
+}
+    int splitArray(vector<int>& nums, int k) {
+        return findPages(nums, nums.size(), k);
+    }
+};
+```
+---
+## Painters partion Problem (Code Chef): 
+
+<P>
+  Difficulty: Medium 
+
+You are given 
+N
+N boards of varying lengths, and 
+k
+k painters are available to paint these boards. Each painter takes the same amount of time to paint 1 unit of board length. A painter can only paint contiguous sections of boards, and each board must be painted by exactly one painter.
+
+Your task is to determine the minimum time required to paint all the boards such that no painter paints more than a specific amount of length. You need to divide the boards into 
+k
+k contiguous parts in such a way that the maximum length painted by any painter is minimized.
+
+Input Format
+The first line contains the number of test cases, T.
+
+The first line of each test case contains two integers, 
+N
+N (the number of boards) and 
+k
+k (the number of painters).
+The second line of each test case contains 
+N
+N space-separated integers, where the 
+i
+i-th integer represents the length of the 
+i
+i-th board
+Output Format
+A single integer representing the minimum time required to paint all the boards, where the time is defined as the maximum time taken by any single painter to paint their assigned section of boards.
+Constraints
+1
+≤
+T
+≤
+100
+1≤T≤100
+1
+≤
+N
+≤
+10
+5
+1≤N≤10 
+5
+ 
+1
+≤
+k
+≤
+N
+1≤k≤N
+1
+≤
+a
+[
+i
+]
+≤
+10
+5
+1≤a[i]≤10 
+5
+ 
+Sample 1:
+Input
+Output
+3
+4 2
+10 20 30 40
+5 3
+10 10 10 10 10
+6 1
+5 10 15 20 25 30
+60
+20
+105
+Explanation:
+Test Case 1: There are 4 boards with lengths [10, 20, 30, 40] and 2 painters. Optimal division will be [10, 20, 30] for one painter and [40] for the other. Maximum length painted by a painter = 60.
+Test case 2: There are 5 boards with equal lengths [10, 10, 10, 10, 10] and 3 painters. Optimal division will be [10, 10], [10, 10], and [10]. Maximum length painted by a painter = 20.
+Test case 3: Only one painter is available, so they must paint all boards. Total length = 5 + 10 + 15 + 20 + 25 + 30 = 105.
+</P>
+
+### Solution: 
+
+```
+#include <bits/stdc++.h>
+using namespace std;
+
+// Implement the painter_partition method here 
+int countStudents(vector<int> &arr, int pages){
+    int student = 1;
+    long long pagesStudent = 0;
+    for(int i = 0;i<arr.size();i++){
+        if(pagesStudent + arr[i] <= pages){
+            pagesStudent += arr[i];
+        }
+        else{
+            student += 1;
+            pagesStudent = arr[i];
+        }
+    }
+    return student;
+}
+int findPages(vector<int>& arr, int n, int m) {
+    // Write your code here.
+    if(m>n) return -1;
+    int low = *max_element(arr.begin(), arr.end());
+    int high = accumulate(arr.begin(), arr.end(), 0);
+    while(low <= high){
+        int mid = (low + high) / 2;
+        int students = countStudents(arr, mid);
+        if(students > m){
+            low = mid + 1;
+        }
+        else{
+            high = mid - 1;
+        }
+    }
+    return low;
+}
+int painter_partition(vector<int> &boards, int k){
+    return findPages(boards, boards.size(), k);
+}
+
+int main() {
+    // Write your code here
+    int t;
+    cin>>t;
+    while(t--){
+    int N, k;
+    cin >> N >> k;
+    vector<int> boards(N);
+    for (int i = 0; i < N; i++)
+        cin >> boards[i];
+
+    cout << painter_partition(boards, k) << endl;
+    }
+    return 0;
+}
+```
+---
