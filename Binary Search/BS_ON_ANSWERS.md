@@ -1066,9 +1066,149 @@ Constraint:
 
 </P> 
 
-### Solution: 
+### Solution (Brute Force): 
 
 ```
+#include <bits/stdc++.h>
+using namespace std;
 
+// Class to solve the gas station placement problem
+class GasStationSolver {
+public:
+    // Function to minimize the maximum distance after placing k gas stations
+    long double minimiseMaxDistance(vector<int>& arr, int k) {
+        int n = arr.size();
+        vector<int> howMany(n - 1, 0); // howMany[i]: extra stations between arr[i] and arr[i+1]
+
+        // Place k gas stations one at a time
+        for (int gasStations = 1; gasStations <= k; gasStations++) {
+            long double maxSection = -1;
+            int maxInd = -1;
+
+            // Find the segment with the current largest section length
+            for (int i = 0; i < n - 1; i++) {
+                long double diff = arr[i + 1] - arr[i];
+                long double sectionLength = diff / (howMany[i] + 1.0);
+
+                if (sectionLength > maxSection) {
+                    maxSection = sectionLength;
+                    maxInd = i;
+                }
+            }
+
+            // Add a gas station in the largest segment
+            howMany[maxInd]++;
+        }
+
+        // Find the final maximum distance after placing all gas stations
+        long double maxAns = -1;
+        for (int i = 0; i < n - 1; i++) {
+            long double diff = arr[i + 1] - arr[i];
+            long double sectionLength = diff / (howMany[i] + 1.0);
+            maxAns = max(maxAns, sectionLength);
+        }
+
+        return maxAns;
+    }
+};
+
+int main() {
+    vector<int> arr = {1, 2, 3, 4, 5};
+    int k = 4;
+
+    GasStationSolver solver;
+    long double ans = solver.minimiseMaxDistance(arr, k);
+
+    cout << "The answer is: " << ans << "\n";
+    return 0;
+}
+
+```
+### Solution (Better): 
+
+```
+#include <bits/stdc++.h>
+using namespace std;
+
+// Class to solve the gas station placement problem
+class Solution {
+public:
+    // Function to minimize the maximum distance between gas stations
+    long double minimiseMaxDistance(vector<int> &arr, int k) {
+        int n = arr.size();
+        vector<int> howMany(n - 1, 0); // Tracks how many stations in each segment
+        priority_queue<pair<long double, int>> pq; // Max-heap
+
+        // Initially insert all segments into the heap with their lengths
+        for (int i = 0; i < n - 1; i++) {
+            long double length = arr[i + 1] - arr[i];
+            pq.push({length, i});
+        }
+
+        // Place k additional gas stations
+        for (int gasStations = 1; gasStations <= k; gasStations++) {
+            auto top = pq.top();
+            pq.pop();
+            int segmentIndex = top.second;
+
+            // Add a station to the segment and recompute its length
+            howMany[segmentIndex]++;
+            long double totalDist = arr[segmentIndex + 1] - arr[segmentIndex];
+            long double newLen = totalDist / (howMany[segmentIndex] + 1);
+            pq.push({newLen, segmentIndex});
+        }
+
+        // Final answer is the max segment length at the top of the heap
+        return pq.top().first;
+    }
+};
+
+int main() {
+    vector<int> arr = {1, 2, 3, 4, 5};
+    int k = 4;
+    Solution obj;
+    long double ans = obj.minimiseMaxDistance(arr, k);
+    cout << "The answer is: " << ans << "\n";
+    return 0;
+}
+
+```
+### Solution (Optimal): 
+
+```
+class Solution {
+public:
+    int numberOfGasStationsRequired(long double dist, vector<int> &arr) {
+        int cnt = 0;
+        for (int i = 1; i < arr.size(); i++) {
+            long double gap = arr[i] - arr[i - 1];
+            cnt += (int)(gap / dist);  // number of stations needed in this gap
+        }
+        return cnt;
+    }
+
+    double minMaxDist(vector<int> &stations, int k) {
+        int n = stations.size();
+        long double low = 1e-6;
+        long double high = 0;
+
+        for (int i = 0; i < n - 1; i++) {
+            high = max(high, (long double)(stations[i + 1] - stations[i]));
+        }
+
+        long double diff = 1e-6;
+        while (high - low > diff) {
+            long double mid = (low + high) / 2.0;
+            int cnt = numberOfGasStationsRequired(mid, stations);
+
+            if (cnt > k) {
+                low = mid;   // need larger distance
+            } else {
+                high = mid;  // feasible, try smaller distance
+            }
+        }
+        return (double)high;
+    }
+}; 
 ```
 ---
