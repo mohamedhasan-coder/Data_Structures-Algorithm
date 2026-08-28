@@ -121,5 +121,72 @@ n == matrix[i].length
 ### Solution: 
 
 ```
+ class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        int n = matrix.size();
+        int m = matrix[0].size();
+        int low = 0;
+        int high = n * m -1;
+        while(low <= high){
+            int mid = (low + high) / 2;
+            int row = mid / m; 
+            int col = mid % m;
+            if(matrix[row][col] == target){
+                return true;
+            }
+            else if(matrix[row][col] < target){
+                low = mid + 1;
+            }
+            else{
+                high = mid - 1;
+            }
+        }
+        return false;
+    }
+};
+```
+---
+## Search 2D Matrix  II (240. Leetcode): 
+
+<P>
+    Difficulty: medium 
+
+    Write an efficient algorithm that searches for a value target in an m x n integer matrix matrix. This matrix has the following properties:
+
+Integers in each row are sorted in ascending from left to right.
+Integers in each column are sorted in ascending from top to bottom.
+ 
+
+Example 1:
+<img width="402" height="402" alt="image" src="https://github.com/user-attachments/assets/7fae1753-f9d6-4691-9392-b1c52301e852" />
+
+
+Input: matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 5
+Output: true
+
+Example 2:
+<img width="402" height="402" alt="image" src="https://github.com/user-attachments/assets/96d79ecb-ddcd-4f2e-9d39-0f84bc657ba4" />
+
+
+Input: matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 20
+Output: false
+ 
+
+Constraints:
+
+m == matrix.length
+n == matrix[i].length
+1 <= n, m <= 300
+-109 <= matrix[i][j] <= 109
+All the integers in each row are sorted in ascending order.
+All the integers in each column are sorted in ascending order.
+-109 <= target <= 109
+</P>
+
+### Solution: 
+
+```
+
 ```
 ---
