@@ -337,3 +337,179 @@ public:
 };
 ```
 ---
+## Isomorphic String (205. Leetcode):
+
+<P>
+  Difficulty: Easy
+
+   Given two strings s and t, determine if they are isomorphic.
+
+Two strings s and t are isomorphic if the characters in s can be replaced to get t.
+
+All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character, but a character may map to itself.
+
+ 
+
+Example 1:
+
+Input: s = "egg", t = "add"
+
+Output: true
+
+Explanation:
+
+The strings s and t can be made identical by:
+
+Mapping 'e' to 'a'.
+Mapping 'g' to 'd'.
+Example 2:
+
+Input: s = "f11", t = "b23"
+
+Output: false
+
+Explanation:
+
+The strings s and t can not be made identical as '1' needs to be mapped to both '2' and '3'.
+
+Example 3:
+
+Input: s = "paper", t = "title"
+
+Output: true
+
+ 
+
+Constraints:
+
+1 <= s.length <= 5 * 104
+t.length == s.length
+s and t consist of any valid ascii character.
+</P>
+
+### Solution: 
+
+```
+class Solution {
+public:
+    bool isIsomorphic(string s, string t) {
+        char map_s[128] = {0};
+        char map_t[128] = {0};
+
+        int len = s.size();
+        for(int i = 0; i<len;++i){
+            if(map_s[s[i]] != map_t[t[i]]) return false;
+
+            map_s[s[i]] = i+1;
+            map_t[t[i]] = i+1;
+        }
+        return true;
+    }
+};
+```
+---
+
+## Rotate String (796. Leetcode):
+
+<P>
+  difficulty: easy 
+
+  Given two strings s and goal, return true if and only if s can become goal after some number of shifts on s.
+
+A shift on s consists of moving the leftmost character of s to the rightmost position.
+
+For example, if s = "abcde", then it will be "bcdea" after one shift.
+ 
+
+Example 1:
+
+Input: s = "abcde", goal = "cdeab"
+Output: true
+Example 2:
+
+Input: s = "abcde", goal = "abced"
+Output: false
+ 
+
+Constraints:
+
+1 <= s.length, goal.length <= 100
+s and goal consist of lowercase English letters.
+</P>
+
+### Solution: 
+
+```
+class Solution {
+public:
+    bool isMatch(string doubled,int idx, string goal){
+        string str1 = doubled.substr(idx, goal.length());
+        return str1 == goal;
+    }
+    bool rotateString(string s, string goal) {
+        if(s.length() != goal.length()) return false;
+        string doubled = s+s;
+        for(int i = 0; i<doubled.length();i++){
+            if(isMatch(doubled,i,goal)) return true;
+        }
+        return false;
+    }
+};
+```
+---
+## Valid Anagram (242. Leetcode):
+
+<P>
+  Diffculty: Easy
+
+  Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+
+ 
+
+Example 1:
+
+Input: s = "anagram", t = "nagaram"
+
+Output: true
+
+Example 2:
+
+Input: s = "rat", t = "car"
+
+Output: false
+
+ 
+
+Constraints:
+
+1 <= s.length, t.length <= 5 * 104
+s and t consist of lowercase English letters.
+ 
+
+Follow up: What if the inputs contain Unicode characters? How would you adapt your solution to such a case?
+</P>
+
+### Solution:
+
+```
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        if(s.length() != t.length()) return false;
+        unordered_map<char,int> a_map;
+        for(int i = 0; i<s.length();i++){
+            a_map[s[i]]++;
+            a_map[t[i]]--;
+        }
+
+        for(auto m = a_map.begin(); m != a_map.end(); m++){
+            if(m->second != 0){
+                return false;
+            }
+        }
+
+        return true;
+    }   
+};
+```
+---
