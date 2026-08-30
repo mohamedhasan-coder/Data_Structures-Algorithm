@@ -178,4 +178,162 @@ public:
     }
 };
 ```
+### Solution (Without Extra Space): 
+
+```
+class Solution {
+public:
+    string reverseWords(string s) {
+        int n = s.length();
+
+        // 1. Remove extra spaces
+        int i = 0;
+        int j = 0;
+
+        while (i < n) {
+            while (i < n && s[i] == ' ')
+                i++;
+
+            while (i < n && s[i] != ' ') {
+                s[j++] = s[i++];
+            }
+
+            while (i < n && s[i] == ' ')
+                i++;
+
+            if (i < n)
+                s[j++] = ' ';
+        }
+
+        s.resize(j);
+
+        // 2. Reverse the entire string
+        reverse(s.begin(), s.end());
+
+        // 3. Reverse each word
+        i = 0;
+
+        while (i < j) {
+            int start = i;
+
+            while (i < j && s[i] != ' ')
+                i++;
+
+            reverse(s.begin() + start, s.begin() + i);
+
+            i++;
+        }
+
+        return s;
+    }
+};
+```
+---
+## Largest Odd Number in a String: (1903. Leetcode):
+
+<P>
+  Diffculty: Easy
+
+  You are given a string num, representing a large integer. Return the largest-valued odd integer (as a string) that is a non-empty substring of num, or an empty string "" if no odd integer exists.
+
+A substring is a contiguous sequence of characters within a string.
+
+ 
+
+Example 1:
+
+Input: num = "52"
+Output: "5"
+Explanation: The only non-empty substrings are "5", "2", and "52". "5" is the only odd number.
+Example 2:
+
+Input: num = "4206"
+Output: ""
+Explanation: There are no odd numbers in "4206".
+Example 3:
+
+Input: num = "35427"
+Output: "35427"
+Explanation: "35427" is already an odd number.
+ 
+
+Constraints:
+
+1 <= num.length <= 105
+num only consists of digits and does not contain any leading zeros.
+</P>
+
+### Solution:
+
+```
+class Solution {
+public:
+    string largestOddNumber(string num) {
+        int n = num.length();
+        int i = n-1;
+        while(i >= 0 && (num[i] - '0') % 2 == 0){
+            i--;
+        }
+        return num.substr(0, i+1);
+    }
+};
+```
+---
+## longest Common Prefix (14. Leetcode): 
+
+<P>
+  Difficulty: Easy 
+
+  Write a function to find the longest common prefix string amongst an array of strings.
+
+If there is no common prefix, return an empty string "".
+
+ 
+
+Example 1:
+
+Input: strs = ["flower","flow","flight"]
+Output: "fl"
+Example 2:
+
+Input: strs = ["dog","racecar","car"]
+Output: ""
+Explanation: There is no common prefix among the input strings.
+ 
+
+Constraints:
+
+1 <= strs.length <= 200
+0 <= strs[i].length <= 200
+strs[i] consists of only lowercase English letters if it is non-empty.
+</P>
+
+### Solution:
+
+```
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        if (strs.empty()) return "";
+
+        int n = strs[0].size();
+
+        for (int i = 1; i < strs.size(); i++) {
+            int j = 0;
+
+            while (j < n &&
+                   j < strs[i].size() &&
+                   strs[0][j] == strs[i][j]) {
+                j++;
+            }
+
+            n = j;
+
+            if (n == 0) return "";
+        }
+
+        return strs[0].substr(0, n);
+    }
+};
+```
 ---
